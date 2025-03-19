@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class MultiCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for the number of elements
+        System.out.print("Enter the number of elements: ");
+        int count = scanner.nextInt();
+
+        // Create an array to hold the numbers
+        double[] numbers = new double[count];
+
+        // Input the numbers
+        for (int i = 0; i < count; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = scanner.nextDouble();
+        }
+
+        // Initialize sum, product, and difference
+        double sum = 0;
+        double product = 1;
+        double difference = numbers[0]; // Start with the first number
+        double quotient = numbers[0]; // Start with the first number
+
+        // Calculate sum, product, difference, and quotient
+        for (int i = 0; i < count; i++) {
+            sum += numbers[i];
+            product *= numbers[i];
+
+            // For difference and quotient, we only calculate from the second number onward
+            if (i > 0) {
+                difference -= numbers[i];
+                if (numbers[i] != 0) {
+                    quotient /= numbers[i];
+                } else {
+                    System.out.println("Cannot divide by zero.");
+                    quotient = Double.NaN; // Set quotient to NaN if division by zero occurs
+                }
+            }
+        }
+
+        // Display results
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Product: " + product);
+        if (!Double.isNaN(quotient)) {
+            System.out.println("Quotient: " + quotient);
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
