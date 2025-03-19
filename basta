@@ -1,0 +1,21 @@
+public class Sample {
+    public static void main(String [] arg) {
+        add(5, 6);
+    }
+    public static void add(int a, int b){
+    int sum;
+    sum = a + b;
+    System.out.println("The sum is "+ sum);
+
+
+if (sum<5){
+System.out.println("Positive");
+return;}
+{
+System.out.println("N/A");
+
+         }
+        
+    }
+    
+}
